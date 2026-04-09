@@ -1,6 +1,4 @@
-# ssl-unpinning-fedex-app-frida
-🛠️ Advanced Android reverse engineering toolkit for the FedEx App. Features full SSL Unpinning, Emulator/Root detection evasion, and native libc.so memory filtering using Frida
-
+# 🚀 Ultimate FedEx Native Root & Emulator Bypass
 
 ![Bypass Success](/photo_2026-04-09_22-01-59.jpg)
 
@@ -50,6 +48,43 @@ let mName = mod.name.toLowerCase();
 - If the caller module is `libwebviewchromium.so` (or unrecognized system Core) $\rightarrow$ **Permitted**
 
 This smart-filtering grants the app the memory access it needs to run while blinding the anti-bot agents.
+
+## ⚙️ Prerequisites & Setup
+
+This bypass utilizes [Frida](https://github.com/frida/frida), a world-class dynamic instrumentation toolkit, along with the Android Debug Bridge (ADB).
+
+### 1. Requirements
+* Install **Python 3** and **ADB**.
+* Install Frida tools on your computer:
+  ```bash
+  pip install frida-tools
+  ```
+* Download and run the `frida-server` binary on your rooted Android device or Emulator.
+
+> 💡 **Recommendation:** We highly recommend running this bypass on an Android Emulator. You must root your emulator via ADB. If you don't know how, watch this full tutorial on YouTube: [How to root Android Emulator via ADB](https://www.youtube.com/watch?v=pcwRWBHFAlg)
+
+### 2. Device Connection & Preparation
+Ensure your target device is connected and accessible via ADB:
+```bash
+# Verify ADB connection and get your Device ID
+adb devices
+
+# (Optional) Clear the app cache to ensure a clean start without old anti-bot flags
+adb shell pm clear com.fedex.ida.android
+```
+
+### 3. Executing the Bypass
+Run the Frida script targeting the FedEx package name (`com.fedex.ida.android`). 
+
+**For Emulators (e.g., LDPlayer, Nox, Bluestacks):**
+```bash
+frida -D emulator-5554 -l fedex_bypass.js -f com.fedex.ida.android
+```
+
+**For USB connected Physical Devices:**
+```bash
+frida -U -l fedex_bypass.js -f com.fedex.ida.android
+```
 
 ## 📝 Execution Logs
 
