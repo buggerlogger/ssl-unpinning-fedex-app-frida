@@ -2,7 +2,7 @@
 🛠️ Advanced Android reverse engineering toolkit for the FedEx App. Features full SSL Unpinning, Emulator/Root detection evasion, and native libc.so memory filtering using Frida
 
 
-![Bypass Success](/c:/Users/ASOO/Desktop/paypal/dd_solver/photo_2026-04-09_22-01-59.jpg)
+![Bypass Success](/photo_2026-04-09_22-01-59.jpg)
 
 **Author:** [@L0ed0_backup](https://t.me/L0ed0_backup)
 
